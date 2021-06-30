@@ -18,13 +18,19 @@ requirements:
   host:
     - pip
     - python
+    - setuptools
+    - wheel
   run:
-    - gast >=0.2.2
+    - gast >=0.4.0
     - python
 
 test:
   imports:
     - beniget
+  requires:
+    - pip
+  commands:
+    - pip check
 
 about:
   home: https://github.com/serge-sans-paille/beniget/
@@ -32,6 +38,7 @@ about:
   license_family: BSD
   license_file: LICENSE
   summary: Extract semantic information about static Python code
+  dev_url: https://github.com/serge-sans-paille/beniget/
 
 extra:
   recipe-maintainers:
