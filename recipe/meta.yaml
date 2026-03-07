@@ -22,10 +22,7 @@ requirements:
     - setuptools
   run:
     - python
-    # AttributeError: module 'gast' has no attribute 'MatchStar' which is resolved in gast 0.5.4
-    # which 0.5.0 doesn't have
-    # https://github.com/serge-sans-paille/gast/blob/1f872364a9964bdb739c4f76d0be463104cc4757/gast/gast.py#L328
-    - gast >=0.5.4
+    - gast >=0.7.0
 
 test:
   source_files:
