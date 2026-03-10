@@ -1,5 +1,5 @@
 {% set name = "beniget" %}
-{% set version = "0.4.2.post1" %}
+{% set version = "0.5.0" %}
 
 package:
   name: {{ name }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: a0258537e65e7e14ec33a86802f865a667f949bb6c73646d55e42f7c45a052ae
+  sha256: e7af11fa8ec7de3d3eb3d98b1e722d15d44017d8b35d8aa11d54f6719b312f22
 
 build:
-  number: 1
+  number: 0
   skip: true  # [py<36]
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
 
@@ -22,10 +22,7 @@ requirements:
     - setuptools
   run:
     - python
-    # AttributeError: module 'gast' has no attribute 'MatchStar' which is resolved in gast 0.5.4
-    # which 0.5.0 doesn't have
-    # https://github.com/serge-sans-paille/gast/blob/1f872364a9964bdb739c4f76d0be463104cc4757/gast/gast.py#L328
-    - gast >=0.5.4
+    - gast >=0.7.0
 
 test:
   source_files:
@@ -47,7 +44,7 @@ about:
   license_file: LICENSE
   summary: Extract semantic information about static Python code
   description: |
-    Beniget is a collection of Compile-time analyze on Python Abstract Syntax Tree(AST). 
+    Beniget is a collection of Compile-time analyze on Python Abstract Syntax Tree(AST).
     It's a building block to write static analyzer or compiler for Python.
   dev_url: https://github.com/serge-sans-paille/beniget
   doc_url: https://github.com/serge-sans-paille/beniget
